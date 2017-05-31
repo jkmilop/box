@@ -2,69 +2,58 @@ print ("Ingrese 0 para -p o -q y cualquier otro numero para p o q\nIngrese prime
 
 
 def valorPyQ(p,q):
-    p = False
-    q = True
+    p1 = False
+    q1 = True
     s = []
     if p != 0:
-        p = True
+        p1 = True
     if q == 0:
-        q = False
-    s.append(p)
-    s.append(q)
+        q1 = False
+    s.append(p1)
+    s.append(q1)
 
-    return pvq(s)
+    return (s)
 
-def pvq(s:list):
-    p = s[0]
-    q = s[1]
-
-    t1 = ["V","V","F","F"]#p
-    t2 = ["V","F","V","F"]#q
-    t3 = ["F","F","V","V"]#-p
-    t4 = ["F","V","F","V"]#-q
+def pvq(s):
+    
+    t1 = "VVFF" # p
+    t2 = "VFVF" # q
+    t3 = "FFVV" #-p
+    t4 = "FVFV" #-q
 
     tmp1 = t1
-    tmp2 = t3
-    tmp3 = []
+    tmp2 = t2
+    tmp3 = ""
 
-    t=[]
     
     #La t es la tabla de verdad
-
-    n = 0
-
     
     if s[0]==False:
         tmp1 = t3
 
-    if s[1]==True:
+    if s[1]==False:
         tmp2 = t4
 
-    for i in tmp1:
-        if tmp1[i] == V or tmp2[i] == V:
-            tmp3.append(V)
+    i = 0
+    while i <4:
+        if tmp1[i] == "V" or tmp2[i] == "V":
+            tmp3+="V"
         else:
-            tmp3.append(F)
+            tmp3+="F"
+        i+=1
 
-    for i in tmp3:
-        t.append(tmp1[i])
-        t.append(tmp2[i])
-        t.append(tmp3[i])
+    j = 0
+    
+    while j <4:
+        t=tmp1[j]+"   "+tmp2[j]+"   "+tmp3[j]
 
-    for i in t:
-        print("t[i]\n")
+        print("%s\n"%t)
+        j+=1
 
 
 def menu():
     s = valorPyQ(1,1)
+    print ("  p v q:\n")
     pvq(s)
 menu()
-            
-        
-            
-            
-            
-        
-
-        
-       
+          
