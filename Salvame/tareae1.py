@@ -160,17 +160,30 @@ def bicondicional(s):
         j+=1
         
 def menu():
-    s = valorPyQ(0,1)
+    s = valorPyQ(0,0)
+
+    p = "p"
+    q = "q"
+
+    if s[0] == 0:
+        p = "-p"
+    if s[1] == 0:
+        q = "-q"
+
     
-    print(" -p\n")
+    if p == "p":
+        print("p  -p\n")
+    
+    if p == "-p":
+        print("-p  p\n")
     negacion(s)
-    print ("  p v q:\n")
+    print ("a = %s v %s\n%s  %s   a\n"%(p,q,p,q))
     disyuncion(s)
-    print ("  p y q:\n")
+    print ("a = %s y %s\n%s  %s   a\n"%(p,q,p,q))
     conjuncion(s)
-    print ("  p -> q:\n")
+    print ("a = %s -> %s\n%s  %s   a\n"%(p,q,p,q))
     condicional(s)
-    print ("  p <-> q:\n")
+    print ("a = %s <-> %s\n%s  %s   a\n"%(p,q,p,q))
     bicondicional(s)
 menu()
           
